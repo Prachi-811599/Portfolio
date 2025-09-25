@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prachi Singh | Computer Science Engineer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #ffd700;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .line {
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 3px 0;
+        transition: 0.3s;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding: 0 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        animation: fadeInUp 1s ease;
+      }
+
+      .hero-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #ffd700;
+        animation: fadeInUp 1s ease 0.2s both;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        animation: fadeInUp 1s ease 0.4s both;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        animation: fadeInUp 1s ease 0.6s both;
+      }
+
+      .btn {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      .btn {
+        background: #ffd700;
+        color: #333;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-outline:hover {
+        background: white;
+        color: #333;
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .section:nth-child(even) {
+        background: #f8f9fa;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #666;
+      }
+
+      .divider {
+        width: 60px;
+        height: 3px;
+        background: #667eea;
+        margin: 0 auto 3rem;
+      }
+
+      /* About Section */
+      .quick-facts {
+        margin-top: 2rem;
+      }
+
+      .quick-facts h4 {
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .quick-facts ul {
+        list-style: none;
+      }
+
+      .quick-facts li {
+        margin: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .quick-facts i {
+        color: #667eea;
+      }
+
+      /* Education Section */
+      .education-item {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .education-item h3 {
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      .education-meta {
+        color: #666;
+        margin-bottom: 0.5rem;
+      }
+
+      .coursework {
+        margin-top: 1.5rem;
+      }
+
+      .coursework h4 {
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .coursework ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.5rem;
+        list-style: none;
+      }
+
+      .coursework li {
+        background: #f8f9fa;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border-left: 3px solid #667eea;
+      }
+
+      /* Projects Section */
+      .project-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .project-card h3 {
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      .technologies {
+        margin: 1.5rem 0;
+      }
+
+      .technologies h4 {
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .technologies ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        list-style: none;
+      }
+
+      .technologies li {
+        background: #667eea;
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+
+      .btn-small {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+      }
+
+      /* Skills Section */
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .skills-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .skills-card h3 {
+        margin-bottom: 1.5rem;
+        color: #333;
+        text-align: center;
+      }
+
+      .skill-item {
+        margin-bottom: 1.5rem;
+      }
+
+      .skill-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+      }
+
+      .skill-bar {
+        height: 10px;
+        background: #e9ecef;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .skill-progress {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        transition: width 2s ease;
+      }
+
+      .two-column-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.8rem;
+      }
+
+      .skill-tag {
+        background: #f8f9fa;
+        padding: 0.8rem;
+        border-radius: 8px;
+        text-align: center;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .skill-tag:hover {
+        border-color: #667eea;
+        background: #667eea;
+        color: white;
+      }
+
+      /* Footer */
+      footer {
+        background: #333;
+        color: white;
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      footer h2 {
+        margin-bottom: 1rem;
+      }
+
+      footer p {
+        margin-bottom: 2rem;
+        color: #ccc;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-link {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-link:hover {
+        color: #ffd700;
+      }
+
+      .copyright {
+        border-top: 1px solid #555;
+        padding-top: 2rem;
+        color: #999;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .coursework ul {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Portfolio</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#connect">Connect</a></li>
+        </ul>
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </nav>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Prachi Singh</h1>
+        <h2>Aspiring Software Engineer | Cloud & Data Specialist</h2>
+        <p>
+          Computer Science Engineering student skilled in cloud-native
+          development, data pipelines, and database management with hands-on
+          experience in Java, Python, C++, and SQL/Oracle. Passionate about
+          building scalable applications and optimizing performance.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn">View My Work</a>
+          <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="divider"></div>
+        <h3 class="section-subtitle">Passionate Software Developer</h3>
+        <p>
+          Aspiring Software Engineer skilled in cloud-native development, data
+          pipelines, and database management. Adept at building scalable
+          applications, optimizing performance, and collaborating in Agile
+          teams. I have hands-on experience with modern technologies and a
+          strong foundation in computer science fundamentals.
+        </p>
+        <div class="quick-facts">
+          <h4>Quick Facts</h4>
+          <ul>
+            <li>
+              <i class="fas fa-check-circle"></i> Computer Science Engineering
+              Student
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i> Cloud & Data Pipeline
+              Specialist
+            </li>
+            <li><i class="fas fa-check-circle"></i> Full Stack Developer</li>
+            <li>
+              <i class="fas fa-check-circle"></i> Agile & DevOps Practitioner
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="education-item">
+          <h3>Bachelor of Engineering in Computer Science</h3>
+          <p class="education-meta"><strong>CGPA: 8.1</strong></p>
+          <p class="education-meta">
+            Nitte Meenakshi Institute of Technology, Bengaluru
+          </p>
+          <p class="education-meta">Expected Jun 2026</p>
+
+          <div class="coursework">
+            <h4>Key Coursework:</h4>
+            <ul>
+              <li>Data Structures & Algorithms</li>
+              <li>Database Management Systems</li>
+              <li>Operating Systems</li>
+              <li>Computer Networks</li>
+              <li>Object Oriented Programming</li>
+              <li>Software Engineering</li>
+              <li>Web Development</li>
+              <li>Cloud Computing</li>
+              <li>Data Analytics</li>
+              <li>Machine Learning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="education-item">
+          <h3>Senior Secondary Education (Class XII)</h3>
+          <p class="education-meta"><strong>Score: 93%</strong></p>
+          <p class="education-meta">Little Flower School, Varanasi</p>
+          <p class="education-meta">2022</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="project-card">
+          <h3>ChatGPT Integration Platform</h3>
+          <p>
+            Developed a full-stack web application integrating the OpenAI
+            ChatGPT API using React, Node.js, Express.js, and MongoDB.
+            Implemented real-time conversational features with secure API
+            handling, enabling interactive AI-powered responses for users.
+          </p>
+
+          <div class="technologies">
+            <h4>Technologies Used:</h4>
+            <ul>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>MongoDB</li>
+              <li>OpenAI API</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+          <a href="#" class="btn btn-small">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Bank Management System</h3>
+          <p>
+            Built a comprehensive bank management system using Java and MySQL.
+            Implemented SQL test cases for transactions, improving performance
+            by 20%. Validated authentication features, reducing system errors by
+            15%.
+          </p>
+
+          <div class="technologies">
+            <h4>Technologies Used:</h4>
+            <ul>
+              <li>Java</li>
+              <li>MySQL</li>
+              <li>JDBC</li>
+              <li>SQL</li>
+              <li>JUnit</li>
+            </ul>
+          </div>
+          <a href="#" class="btn btn-small">View Project</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Sentiment Analysis System</h3>
+          <p>
+            Built an NLP model to classify customer reviews with over 85%
+            accuracy using TF-IDF and preprocessing techniques. Deployed the
+            model with Streamlit, providing a user-friendly interface for
+            real-time sentiment analysis.
+          </p>
+
+          <div class="technologies">
+            <h4>Technologies Used:</h4>
+            <ul>
+              <li>Python</li>
+              <li>NLTK</li>
+              <li>Scikit-learn</li>
+              <li>Streamlit</li>
+              <li>TF-IDF</li>
+              <li>Machine Learning</li>
+            </ul>
+          </div>
+          <a href="#" class="btn btn-small">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="divider"></div>
+
+        <div class="skills-container">
+          <div class="skills-card">
+            <h3>Programming Languages</h3>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Java</span>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Python</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">C/C++</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-card">
+            <h3>Data & Cloud Technologies</h3>
+            <div class="two-column-grid">
+              <div class="skill-tag">AWS EC2</div>
+              <div class="skill-tag">AWS Lambda</div>
+              <div class="skill-tag">DynamoDB</div>
+              <div class="skill-tag">S3</div>
+              <div class="skill-tag">Databricks</div>
+              <div class="skill-tag">Apache Hive</div>
+              <div class="skill-tag">Apache Spark</div>
+              <div class="skill-tag">Apache Kafka</div>
+              <div class="skill-tag">ETL</div>
+              <div class="skill-tag">Data Modeling</div>
+            </div>
+          </div>
+
+          <div class="skills-card">
+            <h3>Databases & Backend</h3>
+            <div class="two-column-grid">
+              <div class="skill-tag">Oracle</div>
+              <div class="skill-tag">MySQL</div>
+              <div class="skill-tag">MongoDB</div>
+              <div class="skill-tag">Node.js</div>
+              <div class="skill-tag">Express.js</div>
+              <div class="skill-tag">REST APIs</div>
+              <div class="skill-tag">Microservices</div>
+              <div class="skill-tag">SQL</div>
+            </div>
+          </div>
+
+          <div class="skills-card">
+            <h3>Tools & Practices</h3>
+            <div class="two-column-grid">
+              <div class="skill-tag">Git</div>
+              <div class="skill-tag">Jenkins</div>
+              <div class="skill-tag">GitHub Actions</div>
+              <div class="skill-tag">Docker</div>
+              <div class="skill-tag">Selenium</div>
+              <div class="skill-tag">Postman</div>
+              <div class="skill-tag">JIRA</div>
+              <div class="skill-tag">Agile</div>
+              <div class="skill-tag">Scrum</div>
+              <div class="skill-tag">DevOps</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="connect">
+      <div class="container">
+        <h2>Let's Connect</h2>
+        <p>
+          Ready to collaborate on innovative projects or discuss opportunities
+          in software engineering and cloud technologies.
+        </p>
+
+        <div class="footer-links">
+          <a href="mailto:singhprachi811599@gmail.com" class="footer-link">
+            <i class="fas fa-envelope"></i> singhprachi811599@gmail.com
+          </a>
+          <a
+            href="https://www.linkedin.com/in/prachi-singh-126b47247/"
+            target="_blank"
+            class="footer-link"
+          >
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a
+            href="https://github.com/Prachi-811599"
+            target="_blank"
+            class="footer-link"
+          >
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="tel:+919653059482" class="footer-link">
+            <i class="fas fa-phone"></i> +91 9653059482
+          </a>
+        </div>
+
+        <div class="copyright">
+          <p>
+            © Made by Prachi Singh. Built with passion for innovation and
+            excellence.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Header background change on scroll
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(255, 255, 255, 0.95)";
+          header.style.color = "#333";
+        } else {
+          header.style.background = "rgba(255, 255, 255, 0.1)";
+          header.style.color = "white";
+        }
+      });
+
+      // Animate skill bars when they come into view
+      const observerOptions = {
+        threshold: 0.5,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const skillBars = entry.target.querySelectorAll(".skill-progress");
+            skillBars.forEach((bar) => {
+              const width = bar.style.width;
+              bar.style.width = "0%";
+              setTimeout(() => {
+                bar.style.width = width;
+              }, 200);
+            });
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".skills-card").forEach((card) => {
+        observer.observe(card);
+      });
+
+      // Mobile menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
